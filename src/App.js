@@ -1,5 +1,14 @@
+import HeroSection from "./sections/HeroSection";
+import Quote from "./sections/Quote";
+import { GlobalStyle } from "./styles/GlobalStyle";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <GlobalStyle />
+      <Quote />
+      <HeroSection />
+    </>
+  );
 }
 
 export default App;
