@@ -19,6 +19,10 @@ function App() {
       {/* <PhoneModel /> */}
       <HeroSection />
       <DesignSection />
+      <DisplaySection />
+      <ProcessorSection />
+      <BatterySection />
+      <ColorSection />
     </>
   );
 }
