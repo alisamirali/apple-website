@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
 import { AdaptiveDpr, AdaptiveEvents, Environment } from "@react-three/drei";
-import Model from "../components/Scene";
+import { Model } from "../assets/3D-Model/Scene";
 import { Suspense } from "react";
 
 const Container = styled.div`
@@ -21,7 +21,10 @@ const PhoneModel = () => {
       <Canvas camera={{ fov: 14 }}>
         <ambientLight intensity={1.25} />
         <directionalLight intensity={0.4} />
-        <Model />
+        <Suspense fallback={null}>
+          <Model />
+        </Suspense>
+        <Environment preset="night" />
       </Canvas>
     </Container>
   );
