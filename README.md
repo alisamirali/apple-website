@@ -1,7 +1,7 @@
 # 3d Landing Page for Apple iphone
 
-## Responsive website using React.js, Three.js, GSAP, and Styled Components.
-## This website uses Three.js to render 3D model of iPhone and GSAP for scrolling animations.
+- Responsive website using React.js, Three.js, GSAP, and Styled Components.
+- This website uses Three.js to render 3D model of iPhone and GSAP for scrolling animations.
 
 ### Website demo: https://apple-iphone-website.vercel.app
 
