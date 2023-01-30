@@ -149,16 +149,15 @@ const DisplaySection = () => {
       <TextBlockRight>
         <Title>Super Ratine XDR Display</Title>
         <Text>
-          A dramatically more powerful Pro camera system. Superfast. Superfluid.
-          Super Retina XDR display with ProMotion.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Necessitatibus dignissimos ipsam.
         </Text>
       </TextBlockRight>
       <TextBlockLeft ref={container}>
         <Title>Big is better</Title>
         <Text>
-          iPhone Pro takes a huge leap forward, bringing incredible speed to
-          everything you do and dramatic new photo and video capabilities — all
-          in two great sizes.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Necessitatibus dignissimos ipsam.
         </Text>
       </TextBlockLeft>
 
