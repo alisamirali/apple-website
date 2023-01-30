@@ -22,8 +22,11 @@ function App() {
       <DisplaySection />
       <ProcessorSection />
       <BatterySection />
-      <ColorSection />
-      <CameraSection />
+      <ColorContextProvider>
+        <ColorSection />
+        <CameraSection />
+        <PricingSection />
+      </ColorContextProvider>
     </>
   );
 }

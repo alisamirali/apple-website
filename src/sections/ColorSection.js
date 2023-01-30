@@ -8,7 +8,6 @@ import Model2 from "../components/Scene2";
 import { useContext } from "react";
 import { ColorContext } from "./../context/ColorContext";
 import { useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
 
 const Section = styled.section`
   width: 100vw;
@@ -58,35 +57,37 @@ const Center = styled.div`
 
 const ColorSection = () => {
   const sectionRef = useRef(null);
-  const leftRef = useRef(null);
   const rightRef = useRef(null);
+  const leftRef = useRef(null);
   const textRef = useRef(null);
 
-  const { materials } = useGLTF("/scene.gltf");
+  const { currentColor, changeColorContext } = useContext(ColorContext);
+
+  useEffect(() => {
+    let rightElem = rightRef.current;
+    let leftElem = leftRef.current;
+    let textElem = textRef.current;
+
+    textElem.innerText = currentColor.text;
+    textElem.style.color = currentColor.color;
+
+    rightElem.style.backgroundColor = `rgba(${currentColor.rgbColor}, 0.4)`;
+    leftElem.style.backgroundColor = `rgba(${currentColor.rgbColor}, 0.8)`;
+  }, [currentColor]);
 
   useLayoutEffect(() => {
     let Elem = sectionRef.current;
-    let leftElem = leftRef.current;
-    let rightElem = rightRef.current;
-    let textElem = textRef.current;
 
     let updateColor = (color, text, rgbColor) => {
-      // const colorObj = {
-      //   color,
-      //   text,
-      //   rgbColor,
-      // };
-
-      materials.Body.color.set(color);
-
-      textElem.innerText = text;
-      textElem.style.color = color;
-
-      rightElem.style.backgroundColor = `rgba(${rgbColor}, 0.4)`;
-      leftElem.style.backgroundColor = `rgba(${rgbColor}, 0.8)`;
+      const colorObj = {
+        color,
+        text,
+        rgbColor,
+      };
+      changeColorContext(colorObj);
     };
 
-    // Pin the section to change color
+    // pin the section
     gsap.to(Elem, {
       scrollTrigger: {
         trigger: Elem,
@@ -144,7 +145,9 @@ const ColorSection = () => {
         onReverseCompleteParams: ["#215E7C", "Blue", "33, 94, 124"],
       });
 
-    return () => {};
+    return () => {
+      if (t2) t2.kill();
+    };
   }, []);
 
   return (
